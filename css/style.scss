@@ -1,0 +1,159 @@
+// @function px( $px ){
+//    @return $px/$designWidth*10 + rem;
+// }
+// $designWidth : 设计稿宽度;
+
+*{ margin:0; padding:0; }
+body{ font-size: 16px; }
+li{list-style: none;}
+a{color: inherit; text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+.clearfix::after{content:"";display:block;clear:both;}
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
+@mixin aside-hover-active{
+    background-color: #EEEEEE;
+    .icon{
+        fill: #000;
+    }
+    span{
+        color: #000;
+    }
+}
+
+
+body{
+    background-color: #F7F7F7;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    .menuIcon{
+        display: flex;
+        padding: 16px;
+        border-radius: 50%;
+        margin: 10px 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        .icon{
+            font-size: 20px;
+            line-height: 20px;
+            vertical-align: top;
+            fill: #6D6D6D;
+        }
+        &:hover{
+            background-color: #EDEDED;
+        }
+    }
+    .logo{
+        display: flex;
+        cursor: pointer;
+        margin-left: 40px;
+        .icon{
+            font-size: 24px;
+            line-height: 24px;
+            fill: #19B2FF;
+            margin: 0 10px;
+        }
+        h1{
+            font-size: 22px;
+            line-height: 24px;
+        }
+    }
+    label{
+        position: relative;
+        margin: 0 100px;
+        .search{
+            width: 700px;
+            font-size: 20px;
+            padding: 16px 40px;
+            outline: none;
+            border: none;
+            border-radius: 4px;
+            background-color: #F5F5F5;
+
+        }
+        .icon{
+            font-size: 24px;
+            line-height: 24px;
+            position: absolute;
+            top: 14px;
+        }
+        .searchIcon{
+            left: 10px;
+        }
+        .clearIcon{
+            cursor: pointer;
+            right: 10px;
+            fill: #D0D0D0;
+            transition: all 0.2s;
+            &:hover{
+                fill: rgb(0,0,0)
+            }
+        }
+    }
+    .application{
+        display: flex;
+        padding: 14px;
+        margin-left: 80px;
+        border-radius: 50%;
+        transition: all 0.2s;
+        cursor: pointer;
+        .icon{
+            font-size: 24px;
+            line-height: 24px;
+            vertical-align: top;
+            fill: #757575;
+            transition: all 0.2s;
+        }
+        &:hover{
+            background-color: #CCCCCC;
+            .icon{
+                fill: #262626;
+            }
+        }
+        
+    }
+}
+
+div.main{
+    display: flex;
+    margin: 10px 0;
+    nav{
+        h2{
+            font-size: 14px;
+            margin-left: 30px;
+        }
+        ol > li{
+            font-size: 20px;
+            padding: 10px 160px 10px 36px;
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+            cursor: pointer;
+            .icon{
+                vertical-align: top;
+                margin-right: 20px;
+                font-size: 24px;
+                fill: #9E9E9E;
+            }
+            span{
+                color: #AEAEAE;
+            }
+            &:hover{
+                @include aside-hover-active
+            }
+            &.active{
+                @include aside-hover-active
+            }
+        }
+    }
+
+    section.content{
+        
+    }
+
+}
+
+
