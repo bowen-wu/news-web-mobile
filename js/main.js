@@ -3,20 +3,30 @@
     let model = {
         init: function(){},
         fetch: function(){
-            let request = new XMLHttpRequest()
-            debugger
-            request.open('GET','http://v.juhe.cn/toutiao/index?type=top&key=4e445aa0f80e579f798c7343464d9564')
-            request.onreadystatechange = () => {
-                console.log(request.readyState)
-                if(request.readyState === 4){
-                    console.log('请求和相应都完毕了')
-                    if(request.status >= 200 && request.status < 300){
-                        let date = JSON.parse(requeat.responseText)
-                        console.log(date)
-                    }
-                }
+            let script = document.createElement('script')
+            let functionName = 'bowen' + parseInt(Math.random()*100000,10)
+            window[functionName] = (result) => {
+                console.log(1)
+                console.log(result)
+                console.log(JSON.parse(result))
+                // if(result.reason === '成功的返回'){
+
+                // }else{
+
+                // }
             }
-            request.send()
+            script.src = 'http://v.juhe.cn/toutiao/index?type=top&key=4e445aa0f80e579f798c7343464d9564&callback=' + functionName
+            document.body.appendChild(script)
+            script.onload = (event) => {
+                console.log('success')
+                event.currentTarget.remove()
+                delete window[functionName]
+            }
+            script.onerror = (event) => {
+                alert('error')
+                event.currentTarget.remove()
+                delete window[functionName]
+            }
         },
         save: function(){}
     }
